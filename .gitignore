@@ -1,0 +1,21 @@
+# File compilati di Java (Inutili su GitHub)
+*.class
+bin/
+build/
+target/
+
+# Impostazioni di IntelliJ IDEA
+.idea/
+*.iml
+
+# Impostazioni di Eclipse
+.settings/
+.project
+.classpath
+
+# Impostazioni di VS Code
+.vscode/
+
+# File di sistema (Mac e Windows)
+.DS_Store
+Thumbs.db
