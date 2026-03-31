@@ -5,11 +5,9 @@ import org.junit.jupiter.api.Test;
 class PartitaTest {
 
 	@Test
-	void isVinta() {
+	void testCFU() {
 		Partita partita = new Partita();
-		// 2. Verifica
-		// vinta() deve essere falso all'inizio del gioco
-		assertFalse(partita.vinta(),"La partita all'inizio non può essere subito vinta");
+		assertEquals(20, partita.getCFU());
 	}
 	
 	@Test
