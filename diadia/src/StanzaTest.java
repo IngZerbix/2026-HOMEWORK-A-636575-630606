@@ -26,7 +26,7 @@ class StanzaTest {
 		Stanza corridoio = new Stanza("Corridoio");
 		aula.impostaStanzaAdiacente("nord", corridoio);
 		assertEquals(corridoio, aula.getStanzaAdiacente("nord"));
-								//riferimentoall'oggetto.metodo
+								//riferimento all'oggetto.metodo
 	}
 	
 
