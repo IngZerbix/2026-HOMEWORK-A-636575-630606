@@ -7,7 +7,7 @@ class PartitaTest {
 	@Test
 	void testCFU() {
 		Partita partita = new Partita();
-		assertEquals(20, partita.getCFU());
+		assertEquals(20, partita.getCfu());
 	}
 	
 	@Test
