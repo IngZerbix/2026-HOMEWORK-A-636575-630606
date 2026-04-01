@@ -8,11 +8,6 @@ target/
 .idea/
 *.iml
 
-# Impostazioni di Eclipse
-.settings/
-.project
-.classpath
-
 # Impostazioni di VS Code
 .vscode/
 
