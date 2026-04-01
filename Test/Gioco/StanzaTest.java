@@ -3,35 +3,38 @@ package Gioco;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 class StanzaTest {
+	
+	private Stanza aula;
+	private Attrezzo banco;
+	private Stanza aulaAdiacente;
 
-	@Test
-	void testStanza() {
-		//Stanza è la classe, aula è l'oggetto d tipo stanza
-		Stanza aula = new Stanza("N11");
-		assertEquals("N11", aula.getNome());
+	@BeforeEach
+	void setup() {
+		this.aula = new Stanza("N11");
+		this.banco = new Attrezzo ("Banco",1);
+		this.aulaAdiacente = new Stanza("N10");
 	}
 	
 	@Test
-	void testAttrezzo() {
-		//l'attrezzo lo crei per metterlo nella stanza
-		Stanza aula = new Stanza("N11");
-		Attrezzo banco = new Attrezzo("Banco", 1);
-		aula.addAttrezzo(banco); // aggiungo nell'aula l'oggetto di classe attrezzo che è banco
-		assertTrue(aula.addAttrezzo(banco)); //verifico se l'oggetto banco è stato aggiunto nell'aula
+	void hasStanzaAdiacente() {
+		assertNull(this.aula.getStanzaAdiacente("nord"));
 	}
 	
 	@Test
-	void testStanzaAdiacente() {
-		Stanza aula = new Stanza("N11");
-		Stanza corridoio = new Stanza("Corridoio");
-		aula.impostaStanzaAdiacente("nord", corridoio);
-		assertEquals(corridoio, aula.getStanzaAdiacente("nord"));
-								//riferimento all'oggetto.metodo
+	void hasStanzaAdiacente2() {
+		this.aula.impostaStanzaAdiacente("nord", this.aulaAdiacente);
+		assertNull(this.aula.getStanzaAdiacente("sud"));
 	}
 	
-
+	@Test
+	void hasStanzaAdiacente3() {
+		this.aula.impostaStanzaAdiacente("nord", this.aulaAdiacente);
+		assertEquals(this.aulaAdiacente, this.aula.getStanzaAdiacente("nord"));
+	}
+	
 }
 
 
