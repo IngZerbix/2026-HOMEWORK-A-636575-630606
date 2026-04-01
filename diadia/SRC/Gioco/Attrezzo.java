@@ -1,6 +1,4 @@
-
-
-
+package Gioco;
 
 /**
  * Una semplice classe che modella un attrezzo.

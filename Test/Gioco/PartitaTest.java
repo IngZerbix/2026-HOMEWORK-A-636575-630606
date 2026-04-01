@@ -1,3 +1,5 @@
+package Gioco;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -13,7 +15,7 @@ class PartitaTest {
 	@Test
 	void isFinita() {
 		Partita partita = new Partita();
-		assertFalse(partita.isFinita(),"La partita non può essere finita se è stata appena creata");
+		assertFalse(partita.isFinita());
 	}
 	
 	@Test
@@ -23,5 +25,4 @@ class PartitaTest {
 		p.setStanzaCorrente(aula);
 		assertEquals(aula, p.getStanzaCorrente());
 	}
-
 }

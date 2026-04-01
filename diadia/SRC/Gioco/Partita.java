@@ -1,6 +1,4 @@
-
-
-
+package Gioco;
 
 /**
  * Questa classe modella una partita del gioco
