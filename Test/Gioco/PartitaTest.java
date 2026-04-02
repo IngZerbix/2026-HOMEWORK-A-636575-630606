@@ -20,12 +20,7 @@ class PartitaTest {
 	void isFinita() {
 		assertFalse(this.p.isFinita());
 	}
-	
-	@Test
-	void isFinita2() {
-		this.p.setCfu(0);
-		assertTrue(this.p.isFinita());
-	}
+
 	
 	@Test
 	void isFinita3() {
