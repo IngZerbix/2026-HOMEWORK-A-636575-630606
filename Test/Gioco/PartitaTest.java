@@ -3,26 +3,33 @@ package Gioco;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+
 
 class PartitaTest {
-
-	@Test
-	void testCFU() {
-		Partita partita = new Partita();
-		assertEquals(20, partita.getCfu());
+	
+	private Partita p;
+	
+	@BeforeEach
+	void setUp() {
+		this.p = new Partita();
 	}
+	
 	
 	@Test
 	void isFinita() {
-		Partita partita = new Partita();
-		assertFalse(partita.isFinita());
+		assertFalse(this.p.isFinita());
 	}
 	
 	@Test
-	void isStanzaCorrente() {
-		Partita p = new Partita();
-		Stanza aula = new Stanza("N11");
-		p.setStanzaCorrente(aula);
-		assertEquals(aula, p.getStanzaCorrente());
+	void isFinita2() {
+		this.p.setCfu(0);
+		assertTrue(this.p.isFinita());
+	}
+	
+	@Test
+	void isFinita3() {
+		this.p.setFinita();
+		assertTrue(this.p.isFinita());
 	}
 }
