@@ -15,6 +15,7 @@ public class Partita {
 	private Stanza stanzaCorrente;
 	private Stanza stanzaVincente;
 	private Labirinto labirinto;
+	private Giocatore giocatore;
 	private boolean finita;
 	private int cfu;
 	
@@ -22,8 +23,12 @@ public class Partita {
 	 * a creare proprio la classe labirinto */
 	public Partita(){
 		this.finita = false;
-		this.cfu = CFU_INIZIALI;
 		this.labirinto = new Labirinto();
+		this.giocatore= new Giocatore();
+	}
+	
+	public Giocatore getGiocatore() {
+		return this.giocatore;
 	}
 
     public Labirinto getLabirinto() {
@@ -66,11 +71,5 @@ public class Partita {
 		this.finita = true;
 	}
 
-	public int getCfu() {
-		return this.cfu;
-	}
 
-	public void setCfu(int cfu) {
-		this.cfu = cfu;		
-	}	
 }
