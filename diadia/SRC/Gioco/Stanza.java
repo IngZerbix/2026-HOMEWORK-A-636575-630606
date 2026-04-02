@@ -134,15 +134,15 @@ public class Stanza {
 	* Controlla se un attrezzo esiste nella stanza (uguaglianza sul nome).
 	* @return true se l'attrezzo esiste nella stanza, false altrimenti.
 	*/
-	public boolean hasAttrezzo(String nomeAttrezzo) {
-		boolean trovato;
-		trovato = false;
-		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo))
-				trovato = true;
+    // abbiamo corretto il ciclo in modo che controlli solo gli elementi effettivamente presenti
+    
+		public boolean hasAttrezzo(String nomeAttrezzo) {
+		    for (int i = 0; i < this.numeroAttrezzi; i++) {
+		        if (this.attrezzi[i].getNome().equals(nomeAttrezzo))
+		            return true;
+		    }
+		    return false;
 		}
-		return trovato;
-	}
 
 	/**
      * Restituisce l'attrezzo nomeAttrezzo se presente nella stanza.
