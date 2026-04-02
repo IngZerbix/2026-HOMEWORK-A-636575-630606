@@ -9,10 +9,11 @@ import org.junit.jupiter.api.BeforeEach;
 class PartitaTest {
 	
 	private Partita p;
+	private Giocatore giocatore;
 	
 	@BeforeEach
 	void setUp() {
-		this.p = new Partita();
+		p = new Partita();
 	}
 	
 	
@@ -23,13 +24,23 @@ class PartitaTest {
 	
 	@Test
 	void isFinita2() {
-		this.p.setCfu(0);
-		assertTrue(this.p.isFinita());
+		// Imposto la stanza corrente uguale alla stanza vincente
+		p.setStanzaCorrente(p.getStanzaVincente());
+		
+		// Ora la partita deve risultare finita (perché è vinta)
+		assertTrue(p.isFinita());
 	}
 	
 	@Test
 	void isFinita3() {
-		this.p.setFinita();
-		assertTrue(this.p.isFinita());
+		p.setFinita();
+		assertTrue(p.isFinita());
+	
+	}
+	
+	
+	void TestVinta() {
+		p.setStanzaCorrente(p.getStanzaVincente());
+		assertTrue(p.vinta());
 	}
 }

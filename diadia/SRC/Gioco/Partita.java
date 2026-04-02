@@ -10,8 +10,6 @@ package Gioco;
 
 public class Partita {
 
-	static final private int CFU_INIZIALI = 20;
-
 	private Stanza stanzaCorrente;
 	private Stanza stanzaVincente;
 	private Labirinto labirinto;
@@ -24,6 +22,7 @@ public class Partita {
 	public Partita(){
 		this.finita = false;
 		this.labirinto = new Labirinto();
+		this.stanzaCorrente=labirinto.getStanzaIniziale();
 		this.giocatore= new Giocatore();
 	}
 	
@@ -47,6 +46,10 @@ public class Partita {
 		return this.stanzaCorrente;
 	}
 	
+	public void setGiocatore() {
+		this.giocatore=giocatore;
+	}
+	
 	/**
 	 * Restituisce vero se e solo se la partita e' stata vinta
 	 * @return vero se partita vinta
@@ -60,7 +63,9 @@ public class Partita {
 	 * @return vero se partita finita
 	 */
 	public boolean isFinita() {
-		return finita || vinta() || (cfu == 0);
+		int cfu = giocatore.getCfu();
+		if(cfu==0) return true;
+		else return finita || vinta();
 	}
 
 	/**
