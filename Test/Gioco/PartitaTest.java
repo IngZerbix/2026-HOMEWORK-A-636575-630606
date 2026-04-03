@@ -9,7 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 class PartitaTest {
 	
 	private Partita p;
-	private Giocatore giocatore;
 	
 	@BeforeEach
 	void setUp() {
@@ -21,7 +20,6 @@ class PartitaTest {
 	void isFinita() {
 		assertFalse(this.p.isFinita());
 	}
-<<<<<<< HEAD
 	
 	@Test
 	void isFinita2() {
@@ -31,9 +29,6 @@ class PartitaTest {
 		// Ora la partita deve risultare finita (perché è vinta)
 		assertTrue(p.isFinita());
 	}
-=======
-
->>>>>>> branch 'main' of https://github.com/IngZerbix/Homework-A-Zerbino-Nicchi-2026.git
 	
 	@Test
 	void isFinita3() {
@@ -42,7 +37,7 @@ class PartitaTest {
 	
 	}
 	
-	
+	@Test
 	void TestVinta() {
 		p.setStanzaCorrente(p.getStanzaVincente());
 		assertTrue(p.vinta());

@@ -15,7 +15,6 @@ public class Partita {
 	private Labirinto labirinto;
 	private Giocatore giocatore;
 	private boolean finita;
-	private int cfu;
 	
 	/*DA CORREGERE Non ce bisogno di avere la responsabilità del labirinto, vado
 	 * a creare proprio la classe labirinto */
