@@ -67,6 +67,19 @@ public class Borsa {
     public Attrezzo removeAttrezzo(String nomeAttrezzo) {
         Attrezzo a = null;
         // ---> TODO (implementare questo metodo) <---
+        for(int i=0;i<this.numeroAttrezzi;i++) {
+        	if (this.attrezzi[i].getNome().equals(nomeAttrezzo)) {
+        		a = this.attrezzi[i]; //salvo l'elemento da eliminare
+        		//sposto l'array di una posizione verso sinistra
+        		for(int j=i;j<this.numeroAttrezzi-1;j++) {
+        			this.attrezzi[j]=this.attrezzi[j+1];
+        		}
+        		numeroAttrezzi--;
+        		this.attrezzi[this.numeroAttrezzi]=null;
+        		break;
+        		
+        	}
+        }
         return a;
     }
 
