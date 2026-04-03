@@ -1,7 +1,10 @@
-package Gioco;
+package it.uniroma3.diadia;
 
 
 import java.util.Scanner;
+
+import it.uniroma3.diadia.ambienti.Stanza;
+import it.uniroma3.diadia.giocatore.Giocatore;
 
 /**
  * Classe principale di diadia, un semplice gioco di ruolo ambientato al dia.
@@ -30,9 +33,11 @@ public class DiaDia {
 	static final private String[] elencoComandi = {"vai", "aiuto", "fine"};
 
 	private Partita partita;
+	private Giocatore giocatore;
 
 	public DiaDia() {
 		this.partita = new Partita();
+		this.giocatore=new Giocatore();
 	}
 
 	public void gioca() {
@@ -95,8 +100,8 @@ public class DiaDia {
 			System.out.println("Direzione inesistente");
 		else {
 			this.partita.setStanzaCorrente(prossimaStanza);
-			int cfu = this.partita.getCfu();
-			this.partita.setCfu(cfu--);//BUG Non decrementa i CFU
+			int cfu = this.giocatore.getCfu();
+			this.giocatore.setCfu(cfu-1);
 		}
 		System.out.println(partita.getStanzaCorrente().getDescrizione());
 	}
