@@ -14,14 +14,13 @@ class StanzaTest {
 	private Stanza aula;
 	private Attrezzo banco;
 	private Stanza aulaAdiacente;
-	private Attrezzo martello;
+	
 
 	@BeforeEach
 	void setup() {
 		this.aula = new Stanza("N11");
 		this.banco = new Attrezzo ("Banco",1);
 		this.aulaAdiacente = new Stanza("N10");
-		this.martello = new Attrezzo("Martello",1);
 	}
 	
 	@Test

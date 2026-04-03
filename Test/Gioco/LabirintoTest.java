@@ -42,8 +42,19 @@ class LabirintoTest {
 	void stanzaFinale() {
 		assertNotNull(labirinto.getStanzaFinale());
 	}
-	
 
+	@Test
+	void testStanzaFinale2() {
+		assertEquals("Biblioteca", labirinto.getStanzaFinale().getNome());
+	}
+	
+	@Test
+	void testStanzaFinale3() {
+		aula = labirinto.getStanzaFinale();
+		assertEquals("Atrio", aula.getStanzaAdiacente("sud").getNome());
+	}
+
+    
 	
 	
 	
