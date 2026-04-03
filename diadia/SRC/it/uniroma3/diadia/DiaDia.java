@@ -4,6 +4,8 @@ package it.uniroma3.diadia;
 import java.util.Scanner;
 
 import it.uniroma3.diadia.ambienti.Stanza;
+import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.giocatore.Borsa;
 import it.uniroma3.diadia.giocatore.Giocatore;
 
 /**
@@ -35,6 +37,7 @@ public class DiaDia {
 	private Partita partita;
 	private Giocatore giocatore;
 
+    
 	public DiaDia() {
 		this.partita = new Partita();
 		this.giocatore=new Giocatore();
@@ -50,7 +53,51 @@ public class DiaDia {
 			istruzione = scannerDiLinee.nextLine();
 		while (!processaIstruzione(istruzione));
 	}   
-
+	
+	//gli attrezzi presi vengono rimossi dalla stanza e aggiunti alla borsa
+	public void prendi(String nomeAttrezzo) {
+			Stanza stanzaCorrente = this.partita.getStanzaCorrente();
+			Attrezzo attrezzoDaPrendere = stanzaCorrente.getAttrezzo(nomeAttrezzo);
+			if(attrezzoDaPrendere!=null) {
+				Borsa borsa = this.giocatore.getBorsa();
+				if(borsa.addAttrezzo(attrezzoDaPrendere)) {
+					//Se l'aggiunta ha successo (true), lo rimuovo dalla stanza
+					stanzaCorrente.removeAttrezzo(attrezzoDaPrendere);
+					System.out.println("Abbiamo raccolto l'attrezzo " + attrezzoDaPrendere);
+				}
+				else {
+					System.out.println("Non puoi prendere questo attrezzo la borsa  è già piena!");
+				}
+			} else {
+				//Se getAttrezzo aveva restituito null
+				System.out.println("Attrezzo non presente in questa stanza.");
+				
+			}
+	}
+	
+	//gli attrezzi posati vengono rimossi dalla borsa e aggiunti alla stanza
+	public void posa(String nomeAttrezzo) {
+		Stanza stanzaCorrente = this.partita.getStanzaCorrente();
+		Borsa borsa = this.giocatore.getBorsa();
+		Attrezzo attrezzoDaPosare = borsa.getAttrezzo(nomeAttrezzo);
+		if(attrezzoDaPosare!=null) {
+			
+			if(stanzaCorrente.addAttrezzo(attrezzoDaPosare)) {
+				borsa.removeAttrezzo(nomeAttrezzo);
+				System.out.println("Hai posato: " + nomeAttrezzo);
+			} else {
+				System.out.println("Non c'é più spazio in questa stanza per posare oggetti!");
+			}
+		}
+		else {
+			System.out.println("L'attrezzo " + nomeAttrezzo + " non è nella borsa!");
+		}
+	}
+	
+	
+	
+	
+	
 
 	/**
 	 * Processa una istruzione 
