@@ -28,7 +28,7 @@ public class DiaDia {
 			"o regalarli se pensi che possano ingraziarti qualcuno.\n\n"+
 			"Per conoscere le istruzioni usa il comando 'aiuto'.";
 	
-	static final private String[] elencoComandi = {"vai", "aiuto", "fine"};
+	static final private String[] elencoComandi = {"vai", "aiuto", "fine", "prendi", "posa"};
 
 	private Partita partita;
 	private Giocatore giocatore;
@@ -105,6 +105,12 @@ public class DiaDia {
 			this.vai(comandoDaEseguire.getParametro());
 		else if (comandoDaEseguire.getNome().equals("aiuto"))
 			this.aiuto();
+		// --- INIZIO NUOVI COMANDI ---
+		else if (comandoDaEseguire.getNome().equals("prendi"))
+			this.prendi(comandoDaEseguire.getParametro());
+		else if (comandoDaEseguire.getNome().equals("posa"))
+			this.posa(comandoDaEseguire.getParametro());
+		// --- FINE NUOVI COMANDI ---
 		else
 			this.console.mostraMessaggio("Comando sconosciuto");
 		
@@ -113,7 +119,7 @@ public class DiaDia {
 			return true;
 		} else
 			return false;
-	}   
+	} 
 
 	// implementazioni dei comandi dell'utente:
 

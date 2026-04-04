@@ -128,7 +128,9 @@ public class Stanza {
     			risultato.append(" " + direzione);
     	risultato.append("\nAttrezzi nella stanza: ");
     	for (Attrezzo attrezzo : this.attrezzi) {
-    		risultato.append(attrezzo.toString()+" ");
+    		if (attrezzo != null) {
+    			risultato.append(attrezzo.toString()+" ");
+    		}
     	}
     	return risultato.toString();
     }
@@ -153,15 +155,17 @@ public class Stanza {
 	 * @return l'attrezzo presente nella stanza.
      * 		   null se l'attrezzo non e' presente.
 	 */
-	public Attrezzo getAttrezzo(String nomeAttrezzo) {
-		Attrezzo attrezzoCercato;
-		attrezzoCercato = null;
-		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo))
-				attrezzoCercato = attrezzo;
+
+		public Attrezzo getAttrezzo(String nomeAttrezzo) {
+			Attrezzo attrezzoCercato = null;
+			for (Attrezzo attrezzo : this.attrezzi) {
+				// <-- CONTROLLO SALVA-CRASH ANCHE QUI
+				if (attrezzo != null && attrezzo.getNome().equals(nomeAttrezzo)) {
+					attrezzoCercato = attrezzo;
+				}
+			}
+			return attrezzoCercato;	
 		}
-		return attrezzoCercato;	
-	}
 
 	/**
 	 * Rimuove un attrezzo dalla stanza (ricerca in base al nome).
