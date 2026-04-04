@@ -45,4 +45,16 @@ class PartitaTest {
 		p.setStanzaCorrente(p.getStanzaVincente());
 		assertTrue(p.vinta());
 	}
+	
+	@Test
+	void testVintaVero() {
+		p.setStanzaCorrente(p.getStanzaVincente());
+		assertTrue(p.vinta());
+	}
+	
+	@Test
+	void testVintaSbagliata() {
+		p.setStanzaCorrente(new it.uniroma3.diadia.ambienti.Stanza("StanzaSbagliata"));
+		assertFalse(p.vinta());
+	}
 }
