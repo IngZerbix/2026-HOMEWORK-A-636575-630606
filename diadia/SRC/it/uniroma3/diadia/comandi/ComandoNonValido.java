@@ -1,11 +1,23 @@
 package it.uniroma3.diadia.comandi;
 
+import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
 
 public class ComandoNonValido implements Comando {
 	@Override
 	public void esegui(Partita partita) {
-		System.out.println("Comando sconosciuto o non valido!");
+		private String nome = "non valido";
+		private IO io;
+	}
+	
+	
+	public ComandoNonValido(IO io) {
+		this.io = io;
+	}
+	
+	@Override
+	public void esegui(Partita partita) {
+		io.mostraMessaggio("Comando non valido");
 	}
 	
 	@Override
@@ -15,7 +27,7 @@ public class ComandoNonValido implements Comando {
 	
 	@Override
 	public String getNome() {
-		return "non valido";
+		return this.nome;
 	}
 	
 	@Override
