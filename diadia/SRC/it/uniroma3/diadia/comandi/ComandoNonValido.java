@@ -5,10 +5,8 @@ import it.uniroma3.diadia.Partita;
 
 public class ComandoNonValido implements Comando {
 	@Override
-	public void esegui(Partita partita) {
 		private String nome = "non valido";
 		private IO io;
-	}
 	
 	
 	public ComandoNonValido(IO io) {
@@ -17,7 +15,7 @@ public class ComandoNonValido implements Comando {
 	
 	@Override
 	public void esegui(Partita partita) {
-		io.mostraMessaggio("Comando non valido");
+		this.io.mostraMessaggio("Comando non valido");
 	}
 	
 	@Override
